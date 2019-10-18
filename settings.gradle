@@ -1,0 +1,6 @@
+rootProject.name = 'registration-center'
+include 'eureka-server-1'
+include 'eureka-server-2'
+include 'provider'
+include 'consumer'
+
