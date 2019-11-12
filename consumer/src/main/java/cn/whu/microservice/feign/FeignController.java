@@ -30,13 +30,12 @@ public class FeignController {
 
     @PostMapping("/RibbonServer")
     public Map postRibbonServer1() {
-
-        String requestMsg = "Feign Post 请求 RibbonServer";
-        Map<String, Object> map = new HashMap<>(16);
-        map.put("requestMsg", requestMsg);
+        Map<String, String> map = new HashMap<>(16);
+        map.put("user", "wangyong");
+        map.put("age", "28");
         Map response = serverApi.postRibbonServer(map);
 //        log.info("response={}", response);
-        System.out.println("response={}"+ response);
+        System.out.println("response="+ response);
         return response;
     }
 

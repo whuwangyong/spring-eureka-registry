@@ -15,6 +15,6 @@ public interface ServerApi {
     String getRibbonServer(@RequestParam("requestMsg") String requestMsg);
 
     @PostMapping("/name")
-    Map postRibbonServer(@RequestBody Map requestMsg);
+    Map postRibbonServer(@RequestBody Map<String,String> requestMsg);
 
 }

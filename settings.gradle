@@ -1,6 +1,15 @@
+pluginManagement {
+    repositories {
+//        maven { url 'https://maven.aliyun.com/repository/public' }
+//        maven { url 'http://127.0.0.1:8081/nexus/content/groups/public/' }
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = 'registration-center'
 include 'eureka-server-1'
 include 'eureka-server-2'
 include 'provider'
 include 'consumer'
+include 'resttest'
 
