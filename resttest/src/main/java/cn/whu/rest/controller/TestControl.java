@@ -40,7 +40,6 @@ public class TestControl {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         logger.info("主线程结束");
@@ -55,7 +54,6 @@ public class TestControl {
                 logger.info("副线程开始");
                 Thread.sleep(10000);
                 logger.info("副线程结束");
-                // TODO Auto-generated method stub
                 return "runnable";
             }
         };
