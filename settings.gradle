@@ -18,4 +18,6 @@ include 'eureka-server-2'
 include 'provider'
 include 'consumer'
 include 'resttest'
+include 'zuul'
+include 'eureka-server-single'
 

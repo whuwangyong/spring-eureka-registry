@@ -4,7 +4,11 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+#      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://127.0.0.1:8760/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
 #服务名
 spring:
   application:

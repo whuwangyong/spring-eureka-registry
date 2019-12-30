@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Time 18:32
  */
 @SpringBootApplication
-public class Main {
+public class TestMainApp {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(TestMainApp.class, args);
     }
 }

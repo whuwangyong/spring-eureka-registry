@@ -1,0 +1,32 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+//buildscript {
+//    repositories {
+////        mavenCentral()
+//        //maven { url 'https://maven.aliyun.com/repository/public' }
+//        maven { url 'http://127.0.0.1:8081/nexus/content/groups/public/' }
+//    }
+//    dependencies {
+//        classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.springBoot}")
+////        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+//    }
+//}
+//apply plugin: 'org.springframework.boot'
+//apply plugin: 'io.spring.dependency-management'
+
+//plugins {
+//    id "org.springframework.boot" version "${springBootVersion}"
+//    id "io.spring.dependency-management" version "${springDepMgtVersion}"
+//}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom(SpringBootPlugin.BOM_COORDINATES)
+    }
+}
