@@ -4,6 +4,12 @@ pluginManagement {
 //        maven { url 'http://127.0.0.1:8081/nexus/content/groups/public/' }
         gradlePluginPortal()
     }
+
+//    plugins {
+//        id "org.springframework.boot" version "${springBootVersion}" 
+//        id "io.spring.dependency-management" version "${springDepMgtVersion}"
+//    }
+    
 }
 
 rootProject.name = 'registration-center'
