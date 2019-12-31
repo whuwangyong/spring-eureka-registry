@@ -20,4 +20,5 @@ include 'consumer'
 include 'resttest'
 include 'zuul'
 include 'eureka-server-single'
+include 'dataInterface'
 

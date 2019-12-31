@@ -27,6 +27,8 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     compile 'io.github.openfeign:feign-gson:10.5.1'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    
+    compile project(":dataInterface")
 }
 
 dependencyManagement {

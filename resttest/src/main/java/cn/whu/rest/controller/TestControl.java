@@ -4,15 +4,11 @@ import cn.whu.rest.ClientTest;
 import cn.whu.rest.DeferredResultHalder;
 import cn.whu.rest.MockQueue;
 import cn.whu.rest.Person;
-import org.omg.CORBA.NameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.Random;
@@ -31,10 +27,13 @@ public class TestControl {
     private DeferredResultHalder deferredResultHalder;
     @Autowired
     ClientTest clientTest;
+    @Value("${lang:zh}")
+    String lang;
 
     private static final Logger logger = LoggerFactory.getLogger(TestControl.class);
 
-    @GetMapping("/test")
+    // 同步处理
+    @GetMapping("/sync")
     public String syncSuccess() {
         logger.info("主线程开始");
         try {
@@ -43,7 +42,11 @@ public class TestControl {
             e.printStackTrace();
         }
         logger.info("主线程结束");
-        return "success";
+        if (lang.equals("en"))
+            return "success";
+        if (lang.equals("zh"))
+            return "成功";
+        else return "0";
     }
 
     @GetMapping("/runnable")
@@ -105,5 +108,25 @@ public class TestControl {
     @GetMapping("/haha")
     public void haha() {
         clientTest.sendPost();
+    }
+
+    /**
+     * 请求 http://127.0.0.1:8080/test/wang，返回hello, wang
+     * @param name
+     * @return
+     */
+    @GetMapping("/test/{name}")
+    public String test(@PathVariable("name") String name) {
+        return "hello, " + name;
+    }
+
+    /**
+     * 请求http://127.0.0.1:8080/test?name=wang,返回hello, wang
+     * @param name
+     * @return
+     */
+    @GetMapping("/test")
+    public String test2(@RequestParam String name) {
+        return "hello, " + name;
     }
 }
