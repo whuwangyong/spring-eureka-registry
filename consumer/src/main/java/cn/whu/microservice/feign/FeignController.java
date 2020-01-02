@@ -3,10 +3,7 @@ package cn.whu.microservice.feign;
 import cn.whu.microservice.bean.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +39,18 @@ public class FeignController {
 
     @GetMapping("/test")
     public String addStudent() {
-        String response = serverApi.addStudent("wang",1101110,new Student("aaaa",111));
+        String response = serverApi.addStudent("ShenZhen", "福外高中", new Student("aaaa", 111));
         System.out.println("response="+ response);
+        return response;
+    }
+
+    //请求url：http://127.0.0.1/Feign/query?sno=110
+    //或 http://127.0.0.1/Feign/query，或使用默认值sno=0000
+    @GetMapping("/query")
+    public String queryStudent(@RequestParam(value = "sno", defaultValue = "0000") String sno) {
+        log.info("sno:" + sno);
+        String response = serverApi.queryStudent(sno);
+        log.info("response=" + response);
         return response;
     }
 

@@ -12,5 +12,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Student {
     String name;
-    int sno;
+    //    int sno;  // 使用基本类型会报错
+    Integer sno;
 }

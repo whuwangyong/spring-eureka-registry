@@ -37,9 +37,19 @@ public class ServiceController {
     }
 
     @PostMapping("/student/{city}/{school}")
-    String addStudent(@PathVariable("city") String city, @PathVariable("school") int school, Student student) {
+//    @ResponseBody
+    String addStudent(@PathVariable("city") String city, @PathVariable("school") String school, Student student) {
         log.info(request.getRequestURL().toString());
         String s = city.toUpperCase() + "," + school + "|" + student.toString();
         return s;
     }
+
+    @GetMapping("/student/query")
+    String queryStudent(@RequestParam String sno) {
+        log.info(request.getRequestURL().toString());
+        String s = "{name=wang,sno=" + sno + "}";
+        return s;
+    }
+
+
 }
