@@ -12,7 +12,7 @@ pluginManagement {
     
 }
 
-rootProject.name = 'registration-center'
+rootProject.name = 'spring-eureka-registry'
 include 'eureka-server-1'
 include 'eureka-server-2'
 include 'provider'
